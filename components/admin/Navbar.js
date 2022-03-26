@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Image from "next/image";
 import {
   SearchIcon,
@@ -8,10 +8,10 @@ import {
   PaperAirplaneIcon,
   MenuIcon,
 } from "@heroicons/react/outline";
-import {CgProfile} from 'react-icons/cg';
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
-  return (  
+  return (
     <div className="shadow-sm border-b bg-white sticky top-0 z-50 w-full">
       <div className="flex justify-between max-w-6xl mx-5  lg:mx-auto">
         {/* LEFT*/}
@@ -23,7 +23,7 @@ const Navbar = () => {
           /> */}
           <div className="flex justify-center items-center flex-shrink-0">
             <h1 className="font-bold text-xl cursor-pointer">
-               Construct<span className="text-blue-500">W</span>
+              Construct<span className="text-blue-500">W</span>
             </h1>
           </div>
         </div>
@@ -52,11 +52,13 @@ const Navbar = () => {
         {/* RIGHT*/}
         <div className="flex items-center justify-end space-x-4">
           {/* <HomeIcon className="navBtn" /> */}
-          <button><CgProfile className='w-8 h-8'/></button>
+          <button>
+            <CgProfile className="w-8 h-8" />
+          </button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Navbar;
