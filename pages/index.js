@@ -16,8 +16,8 @@ export default function welcome() {
       <Firework />
       <Particle />
       <center>
-        <div className="grid place-items-center justify-center  h-screen">
-          <div className="flex flex-col align-center  fixed w-auto h-100 bg-[#0082EF] dark:bg-[#024CA1]  p-5 border-rounded box-border z-1 ">
+        <div className="grid place-items-center justify-center  h-screen ">
+          <div className="flex flex-col align-center  fixed w-auto h-100 bg-[#0082EF] dark:bg-[#024CA1] border-2 p-5 rounded-lg dark:border-[#024CA1] box-border z-1 ">
             <div className="flex flex-col justify-center text-[#032A5D] dark:text-white  font-bold p-4">
               <div className="text-4xl p-1 ">
                 <span className="text-black dark:text-[#FFCA02]">
@@ -35,7 +35,7 @@ export default function welcome() {
                 Site for workers and Contractors
               </div>
             </div>
-            <button class="font-semi rounded-full  bg-white dark:bg-[#FFCA02] py-2 px-4 text-xl text-[#0082EF] hover:bg-[#FFCA02] hover:text-white  dark:hover:bg-[#0082EF] dark:hover:text-[#FFCA02]">
+            <button className="font-semi rounded-full  bg-white dark:bg-[#FFCA02] py-2 px-4 text-xl text-[#0082EF] hover:bg-[#FFCA02] hover:text-white  dark:hover:bg-[#0082EF] dark:hover:text-[#FFCA02]">
               <Link href="/login">Get Started</Link>
             </button>
           </div>
