@@ -6,6 +6,10 @@ import Aadhar from "../workers/aadhar";
 import firebase from "../../firebase/initFirebase";
 import { getFirestore } from "firebase/firestore";
 import { getStorage, ref } from "firebase/storage";
+import CONTINUEE from "../../pages/workers/continue_page";
+
+
+
 
 function addformm() {
   const db = getFirestore(firebase);
@@ -173,9 +177,17 @@ function addformm() {
                   </button> */}
                 </div>
               </div>
+              
             </div>
           </div>
+          <div className="text-center ml-10 mr-5 bg-blue-600 rounded-lg border-2 border-blue-600 font-semibold hover:blue-600 mb-7">
+          <WebcamCapture className=""/>
+          </div>
+          <button className="ml-48 inline-block rounded-full bg-blue-600 border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
+          <Link href="/workers/dashboardWorkers">SUBMIT</Link>
+        </button>
         </form>
+        
       </div>
     </div>
   );
