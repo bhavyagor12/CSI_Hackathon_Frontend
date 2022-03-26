@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import Link from "next/link";
-import { setDoc,addDoc, collection } from "firebase/firestore";
+import {addDoc, collection } from "firebase/firestore";
 import firebase from "../../firebase/initFirebase";
 import { getFirestore } from "firebase/firestore";
 
