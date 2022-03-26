@@ -1,7 +1,14 @@
-import React from "react";
+import React from 'react'
+import Navbar from '../../components/admin/Navbar'
+import Sidebar from '../../components/admin/Sidebar'
 
 const admin = () => {
-  return <div>admin</div>;
-};
+  return (
+    <div>
+      <Sidebar />
+      <Navbar />
+    </div>
+  )
+}
 
-export default admin;
+export default admin
