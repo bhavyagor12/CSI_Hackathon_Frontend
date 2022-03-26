@@ -11,8 +11,9 @@ function Projects() {
   const [Duration,setDuration]=useState("");
 
   const addProject=(ProjectName,ClientName,Description,TotalWorkers,Startdate,Duration)=>{
+    e.preventDefault();
     try{
-    const docRef = addDoc(collection(db, "Projects"), {
+    const docRef = setDoc(collection(db, "Projects"), {
       ProjectName: {ProjectName},
       ClientName: {ClientName},
       Description: {Description},
@@ -146,7 +147,7 @@ function Projects() {
             <div className="m-6 mb-6 w-full px-3 md:mb-0 md:w-1/3">
               <div className="my-10">
                 <div className="flex justify-between">
-                  <button className="mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]" onClick={()=>addProject()}>
+                  <button className="mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]" onSubmit={(e)=>addProject()}>
                     ADD
                   </button>
                   <button className="inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
