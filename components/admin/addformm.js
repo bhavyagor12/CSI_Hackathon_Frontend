@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { addDoc, collection } from "firebase/firestore";
 import WebcamCapture from "../../pages/WebcamCapture";
-import Aadhar from "./aadhar";
+import Aadhar from "../../components/workers/aadhar";
 
 function addformm() {
   const [Name, setProjectName] = useState("");
