@@ -10,6 +10,48 @@ import {
   FaRegEnvelope,
   FaLock,
 } from "react-icons/fa";
+import {firebase,auth} from '../firebase/initFirebase';
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+
+const googleprovider = new GoogleAuthProvider();
+
+const googlelogin=()=>{
+  signInWithPopup(auth,googleprovider)
+  .then((result)=>{
+      const credential= GoogleAuthProvider.credentialFromResult(result);
+      const token= credential.accessToken;
+      const user = result.user;
+      window.location="/";
+  })
+  .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+}
+
+const emaillogin=(email,password)=>{
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      window.location="/";
+      // ...
+  })
+  .catch((error) => {
+      alert("Error signing up");
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+  });
+}
+
+
 
 const login = () => {
   return (
@@ -31,7 +73,7 @@ const login = () => {
                 </h2>
                 <div className="mb-2 inline-block w-10 border-2 border-[#0082EF]"></div>
                 <div className="my-2 flex justify-center ">
-                  <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-[#0082EF]">
+                  <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-[#0082EF]" onClick={()=>googlelogin()}>
                     <FaGoogle className="text-xl" />
                   </button>
                 </div>
