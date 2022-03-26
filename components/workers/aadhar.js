@@ -49,18 +49,17 @@ class aadhar extends Component {
 		<div>
 			<h2>File Details:</h2>
 			
-<p>File Name: {this.state.selectedFile.name}</p>
+			<p>File Name: {this.state.selectedFile.name}</p>
 
 			
-<p>File Type: {this.state.selectedFile.type}</p>
+<			p>File Type: {this.state.selectedFile.type}</p>
 
 			
-<p>
-			Last Modified:{" "}
-			{this.state.selectedFile.lastModifiedDate.toDateString()}
-			</p>
-
-		</div>
+			<p>
+				Last Modified:{" "}
+				{this.state.selectedFile.lastModifiedDate.toDateString()}
+				</p>
+			</div>
 		);
 	} else {
 		return (

@@ -5,13 +5,15 @@ import WebcamCapture from "../../pages/WebcamCapture";
 import Aadhar from "../workers/aadhar";
 import firebase from "../../firebase/initFirebase";
 import { getFirestore } from "firebase/firestore";
+import { getStorage, ref } from "firebase/storage";
 import CONTINUEE from "../../pages/workers/continue_page";
-// import WebcamCapture from "../../pages/WebcamCapture";
+
+
 
 
 function addformm() {
   const db = getFirestore(firebase);
-  
+  const [PDF,setPDF]=useState("");
   const [Name, setName] = useState("");
   const [Age, setAge] = useState("");
   const [Description, setDescription] = useState("");
@@ -19,8 +21,12 @@ function addformm() {
   const [Loc, setLocation] = useState("");
   const [Insurance, setInsurance] = useState("");
 
+
+
   const addWorker = (e) => {
     e.preventDefault();
+    
+    
     try {
       const WorkerRef = addDoc(collection(db, "Workers"), {
         Name:  Name ,
@@ -29,6 +35,8 @@ function addformm() {
         Salary:  Salary ,
         Loc:  Loc ,
         Insurance:  Insurance ,
+         
+
       });
       console.log("Document written with ID: ", WorkerRef.id);
     } catch (e) {
@@ -145,7 +153,7 @@ function addformm() {
               </label>
 
               <div className="items-center justify-center">
-                <Aadhar />
+                <input type="file" name="upload" accept="application/pdf,application/vnd.ms-excel"  onChange={(e)=> {setPDF(e.target.files[0]);console.log(e.target.files[0])}} />
               </div>
             </div>
             {/* <div className=" text-center font-semibold mb-10 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none">
