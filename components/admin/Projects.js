@@ -1,6 +1,14 @@
-import React from "react";
+import React,{useState} from "react";
 import Link from "next/link";
 function Projects() {
+  const [ProjectName,setProjectName]=useState("");
+  const [ClientName,setClientName]=useState("");
+  const [Description,setDescription]=useState("");
+  const [TotalWorkers,setTotalWorkers]=useState("");
+  const [Startdate,setStartdate]=useState("");
+  const [Duration,SetDuration]=useState("");
+
+  
   return (
     <div className="min-h-screen flex-grow bg-gradient-to-r from-cyan-500 to-blue-500">
       <div className="flex items-center justify-center text-2xl text-white">
@@ -15,6 +23,8 @@ function Projects() {
               <label
                 class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
                 for="grid-first-name"
+                value={ProjectName}
+                onChange={()=>setProjectName()}
               >
                 Project Name
               </label>
