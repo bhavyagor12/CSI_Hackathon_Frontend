@@ -4,11 +4,7 @@ import Particle from "../components/Particles";
 import Firework from "../components/Firework";
 import Link from "next/link";
 
-import {
-  FaGoogle,
-  FaRegEnvelope,
-  FaLock,
-} from "react-icons/fa";
+import { FaGoogle, FaRegEnvelope, FaLock } from "react-icons/fa";
 import { firebase, auth } from "../firebase/initFirebase";
 import {
   GoogleAuthProvider,
