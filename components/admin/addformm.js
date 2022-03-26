@@ -152,7 +152,7 @@ function addformm() {
                     className="ml-32 mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]"
                     onClick={() => addProject()}
                   >
-                    <Link href="/workers/continue_page">CONTINUE</Link>
+                    <Link href="/admin/continue_page">CONTINUE</Link>
                   </button>
                   {/* <button className="inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
                     UPDATE
