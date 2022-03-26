@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "../../components/workers/addformm";
+import Form from "../../components/admin/addformm";
 import Sidebar from "../../components/admin/Sidebar";
 
 const add = () => {
