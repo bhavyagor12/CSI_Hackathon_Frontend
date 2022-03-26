@@ -39,7 +39,7 @@ function Navbar() {
               content-end
             >
               <h1 className="font-bold text-xl cursor-pointer ml-14">
-                <Link href="/workers/addform">
+                <Link href="/workers/add">
                   <span className="text-blue-500">Add</span>
                 </Link>
               </h1>

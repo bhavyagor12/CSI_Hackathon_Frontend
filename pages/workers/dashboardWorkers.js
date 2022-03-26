@@ -7,6 +7,7 @@ function dashboardWorkers() {
     <div className="">
       <Title title="Home" />
       <Navbar />
+      
     </div>
   );
 }

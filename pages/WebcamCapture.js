@@ -8,6 +8,7 @@ const videoConstraints = {
   };
   
   const WebcamCapture = () => (
+
     <Webcam
       audio={false}
       height={500}
@@ -22,7 +23,7 @@ const videoConstraints = {
             console.log(imageSrc);
           }}
         >
-          Capture photo
+          CAPTURE PICTURE
         </button>
       )}
     </Webcam>
