@@ -38,13 +38,13 @@ function Navbar() {
               className="flex  justify-center items-center flex-shrink-0"
               content-end
             >
-              
               <h1 className="font-bold text-xl cursor-pointer ml-14">
-              <Link href="/workers/addform">
-                Ad<span className="text-blue-500">d</span>
+                <Link href="/workers/addform">
+                  <span className="text-blue-500">Add</span>
                 </Link>
-              </h1>{/*    <Link href="/workers/addform"> */}
-              
+              </h1>
+              {/*    <Link href="/workers/addform"> */}
+
               {/* </Link> */}
             </div>
             {/* <button className="flex items-center space-x-2 hover:text-white">
