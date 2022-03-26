@@ -9,9 +9,10 @@ import {MdOutlineAreaChart} from 'react-icons/md';
 import {BsList} from 'react-icons/bs';
 import {BiLogOut} from 'react-icons/bi';
 
+
 export default function Sidebar() {
   return (
-    <div className="text-m min-h-screen border-r border-gray-900 bg-black p-5 text-gray-500 ">
+    <div className="text-m min-h-screen border-r border-gray-900 bg-black p-5 text-gray-500 w-1/5">
       <div className="space-y-7 text-m">
         {/* <button className="flex items-center space-x-2 hover:text-white">
           <p>Log out</p>
@@ -23,7 +24,7 @@ export default function Sidebar() {
         <div>Name</div>
         <button className="flex items-center space-x-2 hover:text-white">
         <VscFileSubmodule className="h-5 w-5" />
-          <Link href="/homePage">
+          <Link href="/admin/projects">
             <p>Projects</p>
           </Link>
         </button>
@@ -37,7 +38,7 @@ export default function Sidebar() {
         <button className="flex items-center space-x-2 hover:text-white">
           <BsList className="h-5 w-5" />
           <Link href="/newsPage">
-            <p>Details</p>
+            <p>Worker Details</p>
           </Link>
         </button>
         <button className="flex items-center space-x-2 hover:text-white">
@@ -48,7 +49,9 @@ export default function Sidebar() {
         </button>
         <button className="flex items-center space-x-2 hover:text-white">
         <BiLogOut className="h-5 w-5" />
-          <p>Logout</p>
+        <Link href="/login">
+            <p>Logout</p>
+          </Link>
         </button>
 
         <hr className="border-t-[0.1px] border-gray-900" />
