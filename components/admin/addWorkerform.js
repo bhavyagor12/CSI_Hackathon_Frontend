@@ -2,28 +2,50 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { addDoc, collection } from "firebase/firestore";
 import WebcamCapture from "../../pages/WebcamCapture";
-import Aadhar from "../../components/workers/aadhar";
+import Aadhar from "../workers/aadhar";
+import firebase from "../../firebase/initFirebase";
+import { getFirestore } from "firebase/firestore";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+import CONTINUEE from "../../pages/workers/continue_page";
+
+
+
 
 function addformm() {
-  const [Name, setProjectName] = useState("");
-  const [Age, setClientName] = useState("");
+  const storage = getStorage();
+  const db = getFirestore(firebase);
+  const [PDF,setPDF]=useState("");
+  const [Name, setName] = useState("");
+  const [Age, setAge] = useState("");
   const [Description, setDescription] = useState("");
   const [Salary, setSalary] = useState("");
   const [Loc, setLocation] = useState("");
   const [Insurance, setInsurance] = useState("");
 
-  const addProject = (Name, Age, Description, Salary, Loc, Insurance) => {
+
+
+
+  const addWorker = (e) => {
+    e.preventDefault();
+    const PDFRef = ref(storage, PDF+"");
+    uploadBytes(PDFRef, PDF).then((snapshot) => {
+      console.log('Uploaded a blob or file!');
+    });
+    
+    
     try {
-      const docRef = addDoc(collection(db, "Projects"), {
-        Name: { Name },
-        Age: { Age },
-        // ClientName: { ClientName },
-        Description: { Description },
-        Salary: { Salary },
-        Loc: { Loc },
-        Insurance: { Insurance },
+      const WorkerRef = addDoc(collection(db, "Workers"), {
+        Name:  Name ,
+        Age:  Age ,
+        Description:  Description ,
+        Salary:  Salary ,
+        Loc:  Loc ,
+        Insurance:  Insurance ,
+        pdfref: PDFRef,
+         
+
       });
-      console.log("Document written with ID: ", docRef.id);
+      console.log("Document written with ID: ", WorkerRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -42,8 +64,6 @@ function addformm() {
             <div className="mb-6 w-full px-3 md:mb-0 md:w-1/2">
               <label
                 className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
-                value={Name}
-                onChange={(e) => setProjectName(e.target.value)}
               >
                 Name
               </label>
@@ -52,6 +72,8 @@ function addformm() {
                 id="grid-first-name"
                 type="text"
                 placeholder=""
+                value={Name}
+                onChange={(e) => setName(e.target.value)}
               />
               <p className="text-xs italic text-red-500">
                 Please fill out this field.
@@ -69,7 +91,7 @@ function addformm() {
                 min="18"
                 placeholder=""
                 value={Age}
-                onChange={(e) => setClientName(e.target.value)}
+                onChange={(e) => setAge(e.target.value)}
               />
             </div>
           </div>
@@ -138,7 +160,7 @@ function addformm() {
               </label>
 
               <div className="items-center justify-center">
-                <Aadhar />
+                <input type="file" name="upload" accept="application/pdf,application/vnd.ms-excel"  onChange={(e)=> {setPDF(e.target.files[0]);console.log(e.target.files[0])}} />
               </div>
             </div>
             {/* <div className=" text-center font-semibold mb-10 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none">
@@ -150,7 +172,7 @@ function addformm() {
                 <div className="flex justify-between">
                   <button
                     className="ml-32 mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]"
-                    onClick={() => addProject()}
+                    onClick={(e) => addWorker(e)}
                   >
                     <Link href="/admin/continue_page">CONTINUE</Link>
                   </button>
@@ -162,9 +184,17 @@ function addformm() {
                   </button> */}
                 </div>
               </div>
+              
             </div>
           </div>
+          <div className="text-center ml-10 mr-5 bg-blue-600 rounded-lg border-2 border-blue-600 font-semibold hover:blue-600 mb-7">
+          <WebcamCapture className=""/>
+          </div>
+          <button className="ml-48 inline-block rounded-full bg-blue-600 border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
+          <Link href="/workers/dashboardWorkers">SUBMIT</Link>
+        </button>
         </form>
+        
       </div>
     </div>
   );
