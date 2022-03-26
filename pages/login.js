@@ -34,12 +34,6 @@ const login = () => {
                   <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-[#0082EF]">
                     <FaGoogle className="text-xl" />
                   </button>
-                  <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-[#0082EF]">
-                    <FaGithub className="text-xl " />
-                  </button>
-                  <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-[#0082EF]">
-                    <FaTwitter className="text-xl" />
-                  </button>
                 </div>
                 <p className="text-gray-500 my-2">or use your email address</p>
                 <div className="flex flex-col items-center my-2">
