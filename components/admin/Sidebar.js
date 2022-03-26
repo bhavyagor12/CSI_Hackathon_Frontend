@@ -5,36 +5,39 @@ import { CgProfile } from "react-icons/cg";
 import { BsNewspaper } from "react-icons/bs";
 import { VscFileSubmodule, VscSearch } from "react-icons/vsc";
 import { BsChatSquareDots } from "react-icons/bs";
+import {MdOutlineAreaChart} from 'react-icons/md';
+import {BsList} from 'react-icons/bs';
+import {BiLogOut} from 'react-icons/bi';
 
 export default function Sidebar() {
   return (
     <div className="text-m min-h-screen border-r border-gray-900 bg-black p-5 text-gray-500">
       <div className="space-y-7 text-2xl">
-        <button className="flex items-center space-x-2 hover:text-white">
+        {/* <button className="flex items-center space-x-2 hover:text-white">
           <p>Log out</p>
-        </button>
+        </button> */}
         <button className="flex items-center space-x-2 hover:text-white">
           <CgProfile className="h-5 w-5" />
-          <Link href="/profile">
-            <p>Profile</p>
-          </Link>
+          
         </button>
+        <div>Name</div>
         <button className="flex items-center space-x-2 hover:text-white">
-          <AiOutlineHome className="h-5 w-5" />
+        <VscFileSubmodule className="h-5 w-5" />
           <Link href="/homePage">
-            <p>Home</p>
+            <p>Projects</p>
           </Link>
         </button>
+        
         <button className="flex items-center space-x-2 hover:text-white">
-          <VscFileSubmodule className="h-5 w-5" />
-          <Link href="/addProject">
-            <p> Post Projects</p>
-          </Link>
-        </button>
-        <button className="flex items-center space-x-2 hover:text-white">
-          <VscSearch className="h-5 w-5" />
+          <MdOutlineAreaChart className="h-5 w-5" />
           <Link href="/exploreProject">
-            <p>Explore Projects</p>
+            <p>Areas</p>
+          </Link>
+        </button>
+        <button className="flex items-center space-x-2 hover:text-white">
+          <BsList className="h-5 w-5" />
+          <Link href="/newsPage">
+            <p>Worker Details</p>
           </Link>
         </button>
         <button className="flex items-center space-x-2 hover:text-white">
@@ -42,6 +45,10 @@ export default function Sidebar() {
           <Link href="/newsPage">
             <p>News</p>
           </Link>
+        </button>
+        <button className="flex items-center space-x-2 hover:text-white">
+        <BiLogOut className="h-5 w-5" />
+          <p>Logout</p>
         </button>
 
         <hr className="border-t-[0.1px] border-gray-900" />
