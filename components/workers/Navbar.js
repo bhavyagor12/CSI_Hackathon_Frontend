@@ -1,15 +1,8 @@
 import React from "react";
-import Image from "next/image";
-import {
-  SearchIcon,
-  PlusCircleIcon,
-  UserGroupIcon,
-  HeartIcon,
-  PaperAirplaneIcon,
-  MenuIcon,
-} from "@heroicons/react/outline";
-import { HomeIcon } from "@heroicons/react/solid";
-import { CgProfile } from "react-icons/cg"
+
+import Link from "next/link";
+
+import { CgProfile } from "react-icons/cg";
 function Navbar() {
   return (
     <div className="shadow-sm border-b bg-white sticky top-0 z-50 w">
@@ -21,9 +14,12 @@ function Navbar() {
             layout="fill"
             objectFit="contain"
           /> */}
-          <div className="flex justify-center items-center flex-shrink-0" content-end>
+          <div
+            className="flex justify-center items-center flex-shrink-0"
+            content-end
+          >
             <h1 className="font-bold text-xl cursor-pointer">
-               Construct<span className="text-blue-500">W</span>
+              Construct<span className="text-blue-500">W</span>
             </h1>
           </div>
         </div>
@@ -35,39 +31,60 @@ function Navbar() {
           />
         </div>
 
-      
-
         {/* RIGHT*/}
         <div className="grid grid-cols-4 gap-1">
-        <div className="flex flex-end items-end justify-end">
-        <div className="flex  justify-center items-center flex-shrink-0" content-end>
-            <h1 className="font-bold text-xl cursor-pointer ml-14">
-               Ad<span className="text-blue-500">d</span>
-            </h1>
-          </div>
+          <div className="flex flex-end items-end justify-end">
+            <div
+              className="flex  justify-center items-center flex-shrink-0"
+              content-end
+            >
+              <h1 className="font-bold text-xl cursor-pointer ml-14">
+                <Link href="/workers/addform">
+                  <span className="text-blue-500">Add</span>
+                </Link>
+              </h1>
+              {/*    <Link href="/workers/addform"> */}
+
+              {/* </Link> */}
+            </div>
+            {/* <button className="flex items-center space-x-2 hover:text-white">
+          <BsList className="h-5 w-5" />
+          <Link href="/newsPage">
+            <p>Worker Details</p>
+          </Link>
+        </button> */}
           </div>
           <div className="flex flex-end items-end justify-end">
-        <div className="flex justify-center items-center flex-shrink-0" content-end>
-            <h1 className="font-bold text-xl cursor-pointer ml-14">
-              Edi<span className="text-blue-500">t</span>
-            </h1>
-          </div>
-          </div>
-          <div className="flex flex-end items-end justify-end">
-        <div className="flex justify-center items-center flex-shrink-0" content-end>
-            <h1 className="font-bold text-xl cursor-pointer ml-14">
-              Project<span className="text-blue-500">s</span>
-            </h1>
-          </div>
+            <div
+              className="flex justify-center items-center flex-shrink-0"
+              content-end
+            >
+              <h1 className="font-bold text-xl cursor-pointer ml-14">
+                Edi<span className="text-blue-500">t</span>
+              </h1>
+            </div>
           </div>
           <div className="flex flex-end items-end justify-end">
-        <div className="flex justify-center items-center flex-shrink-0" content-end>
-            <h1 className="font-bold text-xl cursor-pointer ml-14">
-              <CgProfile />
-            </h1>
+            <div
+              className="flex justify-center items-center flex-shrink-0"
+              content-end
+            >
+              <h1 className="font-bold text-xl cursor-pointer ml-14">
+                Project<span className="text-blue-500">s</span>
+              </h1>
+            </div>
           </div>
+          <div className="flex flex-end items-end justify-end">
+            <div
+              className="flex justify-center items-center flex-shrink-0"
+              content-end
+            >
+              <h1 className="font-bold text-xl cursor-pointer ml-14">
+                <CgProfile />
+              </h1>
+            </div>
           </div>
-          </div>
+        </div>
       </div>
     </div>
   );

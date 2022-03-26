@@ -6,8 +6,6 @@ import Link from "next/link";
 
 import {
   FaGoogle,
-  FaGithub,
-  FaTwitter,
   FaRegEnvelope,
   FaLock,
 } from "react-icons/fa";
