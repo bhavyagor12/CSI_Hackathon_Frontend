@@ -5,13 +5,14 @@ import WebcamCapture from "../../pages/WebcamCapture";
 import Aadhar from "../workers/aadhar";
 import firebase from "../../firebase/initFirebase";
 import { getFirestore } from "firebase/firestore";
-import { getStorage, ref } from "firebase/storage";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 import CONTINUEE from "../../pages/workers/continue_page";
 
 
 
 
 function addformm() {
+  const storage = getStorage();
   const db = getFirestore(firebase);
   const [PDF,setPDF]=useState("");
   const [Name, setName] = useState("");
@@ -23,8 +24,13 @@ function addformm() {
 
 
 
+
   const addWorker = (e) => {
     e.preventDefault();
+    const PDFRef = ref(storage, PDF+"");
+    uploadBytes(PDFRef, PDF).then((snapshot) => {
+      console.log('Uploaded a blob or file!');
+    });
     
     
     try {
@@ -35,6 +41,7 @@ function addformm() {
         Salary:  Salary ,
         Loc:  Loc ,
         Insurance:  Insurance ,
+        pdfref: PDFRef,
          
 
       });

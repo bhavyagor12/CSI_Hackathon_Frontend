@@ -1,13 +1,14 @@
 import React from "react";
 import Title from "../../components/Title";
-import Navbar from "../../components/workers/Navbar";
+import Navbar1 from "../../components/workers/Navbar1";
 
+import Profile from "../../components/workers/center";
 function dashboardWorkers() {
   return (
     <div className="">
       <Title title="Home" />
-      <Navbar />
-      
+      <Navbar1 />
+      <Profile />
     </div>
   );
 }
