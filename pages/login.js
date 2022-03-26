@@ -126,7 +126,7 @@ const login = () => {
                 You have to login to use our amazing features
               </p>
               <button className="inline-block rounded-full mb-5 border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
-                <Link href="/workers/dashboardWorkers">Explore as worker</Link>
+                <Link href="/workers">Explore as worker</Link>
               </button>
               <button className="inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
                 <Link href="/admin">Explore as contractor</Link>
