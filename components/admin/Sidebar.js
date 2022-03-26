@@ -29,13 +29,13 @@ export default function Sidebar() {
 
         <button className="flex items-center space-x-2 hover:text-white">
           <MdOutlineAreaChart className="h-5 w-5" />
-          <Link href="/">
-            <p>Fetch Projects</p>
+          <Link href="/admin/projectedit">
+            <p>Add Projects</p>
           </Link>
         </button>
         <button className="flex items-center space-x-2 hover:text-white">
           <BsList className="h-5 w-5" />
-          <Link href="/admin/addWorkers">
+          <Link href="/admin/addWorker">
             <p>Add Workers</p>
           </Link>
         </button>
@@ -55,6 +55,12 @@ export default function Sidebar() {
           <BiLogOut className="h-5 w-5" />
           <Link href="/admin/safetyReport">
             <p>Safety report</p>
+          </Link>
+        </button>
+        <button className="flex items-center space-x-2 hover:text-white">
+          <BiLogOut className="h-5 w-5" />
+          <Link href="/login">
+            <p>Logout</p>
           </Link>
         </button>
 

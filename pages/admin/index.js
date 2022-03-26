@@ -6,7 +6,7 @@ const admin = () => {
   return (
     <div>
       <Sidebar />
-      <Navbar />
+      
     </div>
   )
 }
