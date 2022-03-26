@@ -129,9 +129,7 @@ const login = () => {
                 <Link href="/workers/dashboardWorkers">Explore as worker</Link>
               </button>
               <button className="inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
-                <Link href="/admin/dashboardContractor">
-                  Explore as contractor
-                </Link>
+                <Link href="/admin">Explore as contractor</Link>
               </button>
             </div>
           </div>
