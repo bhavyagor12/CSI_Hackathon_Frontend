@@ -2,28 +2,32 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { addDoc, collection } from "firebase/firestore";
 import WebcamCapture from "../../pages/WebcamCapture";
-import Aadhar from "../../components/workers/aadhar";
+import Aadhar from "../workers/aadhar";
+import firebase from "../../firebase/initFirebase";
+import { getFirestore } from "firebase/firestore";
 
 function addformm() {
-  const [Name, setProjectName] = useState("");
-  const [Age, setClientName] = useState("");
+  const db = getFirestore(firebase);
+  
+  const [Name, setName] = useState("");
+  const [Age, setAge] = useState("");
   const [Description, setDescription] = useState("");
   const [Salary, setSalary] = useState("");
   const [Loc, setLocation] = useState("");
   const [Insurance, setInsurance] = useState("");
 
-  const addProject = (Name, Age, Description, Salary, Loc, Insurance) => {
+  const addWorker = (e) => {
+    e.preventDefault();
     try {
-      const docRef = addDoc(collection(db, "Projects"), {
-        Name: { Name },
-        Age: { Age },
-        // ClientName: { ClientName },
-        Description: { Description },
-        Salary: { Salary },
-        Loc: { Loc },
-        Insurance: { Insurance },
+      const WorkerRef = addDoc(collection(db, "Workers"), {
+        Name:  Name ,
+        Age:  Age ,
+        Description:  Description ,
+        Salary:  Salary ,
+        Loc:  Loc ,
+        Insurance:  Insurance ,
       });
-      console.log("Document written with ID: ", docRef.id);
+      console.log("Document written with ID: ", WorkerRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -42,8 +46,6 @@ function addformm() {
             <div className="mb-6 w-full px-3 md:mb-0 md:w-1/2">
               <label
                 className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
-                value={Name}
-                onChange={(e) => setProjectName(e.target.value)}
               >
                 Name
               </label>
@@ -52,6 +54,8 @@ function addformm() {
                 id="grid-first-name"
                 type="text"
                 placeholder=""
+                value={Name}
+                onChange={(e) => setName(e.target.value)}
               />
               <p className="text-xs italic text-red-500">
                 Please fill out this field.
@@ -69,7 +73,7 @@ function addformm() {
                 min="18"
                 placeholder=""
                 value={Age}
-                onChange={(e) => setClientName(e.target.value)}
+                onChange={(e) => setAge(e.target.value)}
               />
             </div>
           </div>
@@ -150,7 +154,7 @@ function addformm() {
                 <div className="flex justify-between">
                   <button
                     className="ml-32 mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]"
-                    onClick={() => addProject()}
+                    onClick={(e) => addWorker(e)}
                   >
                     <Link href="/admin/continue_page">CONTINUE</Link>
                   </button>
