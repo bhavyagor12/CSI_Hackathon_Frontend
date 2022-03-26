@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import Image from "next/image";
 import {
   SearchIcon,
@@ -8,13 +8,14 @@ import {
   PaperAirplaneIcon,
   MenuIcon,
 } from "@heroicons/react/outline";
-import { HomeIcon } from "@heroicons/react/solid";
-function Navbar() {
-  return (
-    <div className="shadow-sm border-b bg-white sticky top-0 z-50 w">
+import {CgProfile} from 'react-icons/cg';
+
+const Navbar = () => {
+  return (  
+    <div className="shadow-sm border-b bg-white sticky top-0 z-50 w-full">
       <div className="flex justify-between max-w-6xl mx-5  lg:mx-auto">
         {/* LEFT*/}
-        <div className="relative hidden lg:inline-grid w-24">
+        <div className="relative hidden lg:inline-grid w-20">
           {/* <img
             src="https://play-lh.googleusercontent.com/9ASiwrVdio0I2i2Sd1UzRczyL81piJoKfKKBoC8PUm2q6565NMQwUJCuNGwH-enhm00"
             layout="fill"
@@ -50,24 +51,12 @@ function Navbar() {
 
         {/* RIGHT*/}
         <div className="flex items-center justify-end space-x-4">
-          <HomeIcon className="navBtn" />
-          <MenuIcon className="h-6 md:hidden cursor-pointer" />
-          <div className="relative navBtn">
-            <PaperAirplaneIcon className="navBtn rotate-45" />
-          </div>
-
-          <PlusCircleIcon className="navBtn" />
-          <UserGroupIcon className="navBtn" />
-          <HeartIcon className="navBtn" />
-          <img
-            src="https://i.guim.co.uk/img/media/a7fe7170defa865d2b96b829f05c5d8fa82d8edf/0_20_2201_1321/master/2201.jpg?width=465&quality=45&auto=format&fit=max&dpr=2&s=72bbae118ff1631bcc0d1f837159a727"
-            alt=""
-            className="h-10 rounded-full cursor-pointer"
-          />
+          {/* <HomeIcon className="navBtn" /> */}
+          <button><CgProfile className='w-8 h-8'/></button>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default Navbar;

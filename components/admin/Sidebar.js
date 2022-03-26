@@ -11,8 +11,8 @@ import {BiLogOut} from 'react-icons/bi';
 
 export default function Sidebar() {
   return (
-    <div className="text-m min-h-screen border-r border-gray-900 bg-black p-5 text-gray-500">
-      <div className="space-y-7 text-2xl">
+    <div className="text-m min-h-screen border-r border-gray-900 bg-black p-5 text-gray-500 ">
+      <div className="space-y-7 text-m">
         {/* <button className="flex items-center space-x-2 hover:text-white">
           <p>Log out</p>
         </button> */}
@@ -37,7 +37,7 @@ export default function Sidebar() {
         <button className="flex items-center space-x-2 hover:text-white">
           <BsList className="h-5 w-5" />
           <Link href="/newsPage">
-            <p>Worker Details</p>
+            <p>Details</p>
           </Link>
         </button>
         <button className="flex items-center space-x-2 hover:text-white">
