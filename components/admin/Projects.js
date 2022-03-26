@@ -1,34 +1,38 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { addDoc, collection } from "firebase/firestore";
 
 function Projects() {
-  const [ProjectName,setProjectName]=useState("");
-  const [ClientName,setClientName]=useState("");
-  const [Description,setDescription]=useState("");
-  const [TotalWorkers,setTotalWorkers]=useState("");
-  const [Startdate,setStartdate]=useState("");
-  const [Duration,setDuration]=useState("");
+  const [ProjectName, setProjectName] = useState("");
+  const [ClientName, setClientName] = useState("");
+  const [Description, setDescription] = useState("");
+  const [TotalWorkers, setTotalWorkers] = useState("");
+  const [Startdate, setStartdate] = useState("");
+  const [Duration, setDuration] = useState("");
 
-  const addProject=(ProjectName,ClientName,Description,TotalWorkers,Startdate,Duration)=>{
-    try{
-    const docRef = addDoc(collection(db, "Projects"), {
-      ProjectName: {ProjectName},
-      ClientName: {ClientName},
-      Description: {Description},
-      TotalWorkers: {TotalWorkers},
-      Startdate: {Startdate},
-      Duration: {Duration},
-    });
-    console.log("Document written with ID: ", docRef.id);
-    } 
-    catch (e) {
-        console.error("Error adding document: ", e);
-      }
+  const addProject = (
+    ProjectName,
+    ClientName,
+    Description,
+    TotalWorkers,
+    Startdate,
+    Duration
+  ) => {
+    try {
+      const docRef = addDoc(collection(db, "Projects"), {
+        ProjectName: { ProjectName },
+        ClientName: { ClientName },
+        Description: { Description },
+        TotalWorkers: { TotalWorkers },
+        Startdate: { Startdate },
+        Duration: { Duration },
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  };
 
-  }
-
-  
   return (
     <div className="min-h-screen flex-grow bg-gradient-to-r from-cyan-500 to-blue-500">
       <div className="flex items-center justify-center text-2xl text-white">
@@ -42,9 +46,8 @@ function Projects() {
             <div className="mb-6 w-full px-3 md:mb-0 md:w-1/2">
               <label
                 className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
-                
                 value={ProjectName}
-                onChange={(e)=>setProjectName(e.target.value)}
+                onChange={(e) => setProjectName(e.target.value)}
               >
                 Project Name
               </label>
@@ -59,10 +62,7 @@ function Projects() {
               </p>
             </div>
             <div className="w-full px-3 md:w-1/2">
-              <label
-                className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
-                
-              >
+              <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
                 Client Name
               </label>
               <input
@@ -71,16 +71,13 @@ function Projects() {
                 type="text"
                 placeholder=""
                 value={ClientName}
-                onChange={(e)=>setClientName(e.target.value)}
+                onChange={(e) => setClientName(e.target.value)}
               />
             </div>
           </div>
           <div className="-mx-3 mb-6 flex flex-wrap">
             <div className="w-full px-3">
-              <label
-                className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
-                
-              >
+              <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
                 Description
               </label>
               <input
@@ -89,7 +86,7 @@ function Projects() {
                 type="text"
                 placeholder=""
                 value={Description}
-                onChange={(e)=>setDescription(e.target.value)}
+                onChange={(e) => setDescription(e.target.value)}
               />
               <p className="text-xs italic text-gray-600">
                 A DETAILED DESC IS HELPFUL
@@ -98,9 +95,7 @@ function Projects() {
           </div>
           <div className="-mx-3 mb-2 flex flex-wrap">
             <div className="mb-6 w-full px-3 md:mb-0 md:w-1/3">
-              <label
-                className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
-              >
+              <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
                 Total Workers
               </label>
               <input
@@ -109,13 +104,11 @@ function Projects() {
                 type="numbers"
                 placeholder=""
                 value={TotalWorkers}
-                onChange={(e)=>setTotalWorkers(e.target.value)}
+                onChange={(e) => setTotalWorkers(e.target.value)}
               />
             </div>
             <div className="mb-6 w-full px-3 md:mb-0 md:w-1/3">
-              <label
-                className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
-              >
+              <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
                 Start date
               </label>
               <input
@@ -124,14 +117,12 @@ function Projects() {
                 type="date"
                 placeholder=""
                 value={Startdate}
-                onChange={(e)=>setStartdate(e.target.value)}
+                onChange={(e) => setStartdate(e.target.value)}
               />
             </div>
 
             <div className="mb-6 w-full px-3 md:mb-0 md:w-1/3">
-              <label
-                className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
-              >
+              <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
                 Duration of contract
               </label>
               <input
@@ -140,13 +131,16 @@ function Projects() {
                 type="text"
                 placeholder=""
                 value={Duration}
-                onChange={(e)=>setDuration(e.target.value)}
+                onChange={(e) => setDuration(e.target.value)}
               />
             </div>
             <div className="m-6 mb-6 w-full px-3 md:mb-0 md:w-1/3">
               <div className="my-10">
                 <div className="flex justify-between">
-                  <button className="mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]" onClick={()=>addProject()}>
+                  <button
+                    className="mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]"
+                    onClick={() => addProject()}
+                  >
                     ADD
                   </button>
                   <button className="inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
