@@ -15,11 +15,16 @@ function Navbar() {
       <div className="flex justify-between max-w-6xl mx-5  lg:mx-auto">
         {/* LEFT*/}
         <div className="relative hidden lg:inline-grid w-24">
-          <img
+          {/* <img
             src="https://play-lh.googleusercontent.com/9ASiwrVdio0I2i2Sd1UzRczyL81piJoKfKKBoC8PUm2q6565NMQwUJCuNGwH-enhm00"
             layout="fill"
             objectFit="contain"
-          />
+          /> */}
+          <div className="flex justify-center items-center flex-shrink-0">
+            <h1 className="font-bold text-xl cursor-pointer">
+               Construct<span className="text-blue-500">W</span>
+            </h1>
+          </div>
         </div>
         <div className="relative w-10 lg:hidden flex-shrink-0">
           <img
