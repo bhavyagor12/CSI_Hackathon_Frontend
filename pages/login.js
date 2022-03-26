@@ -1,8 +1,9 @@
-import React from "react";
+import React,{ useState } from "react";
 import Title from "../components/Title";
 import Particle from "../components/Particles";
 import Firework from "../components/Firework";
 import Link from "next/link";
+
 import {
   FaGoogle,
   FaGithub,
@@ -36,6 +37,7 @@ const googlelogin=()=>{
 }
 
 const emaillogin=(email,password)=>{
+  console.log(email+password)
   signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
       // Signed in 
@@ -47,6 +49,7 @@ const emaillogin=(email,password)=>{
       alert("Error signing up");
       const errorCode = error.code;
       const errorMessage = error.message;
+      window.location="/";
       // ..
   });
 }
@@ -54,6 +57,11 @@ const emaillogin=(email,password)=>{
 
 
 const login = () => {
+  const [EmailID, setEmailID]=useState("");
+  const [Password, setPassword]=useState("");
+
+
+
   return (
     <div className="min-h-screen bg-[#0082EF] dark:bg-[#032A5D]">
       <Title title="Login" />
@@ -86,7 +94,10 @@ const login = () => {
                       name="email"
                       placeholder="Email"
                       className="bg-gray-100 outline-none text-sm flex-1"
-                    ></input>
+                      value={EmailID}
+                      onChange={(e)=>setEmailID(e.target.value)}
+
+                    />
                   </div>
                   <div className="bg-gray-100 w-64 p-2 flex items-center ">
                     <FaLock className="text-gray-400 m-2" />
@@ -95,10 +106,12 @@ const login = () => {
                       name="password"
                       placeholder="Password"
                       className="bg-gray-100 outline-none text-sm flex-1"
-                    ></input>
+                      value={Password}
+                      onChange={(e)=>setPassword(e.target.value)}
+                    />
                   </div>
-                  <button className="mt-10 inline-block rounded-full border-2 bg-[#0082EF] border-white px-12 py-2 font-semibold hover:bg-black hover:text-[#0082EF]">
-                    <Link href="/home">Sign in</Link>
+                  <button className="mt-10 inline-block rounded-full border-2 bg-[#0082EF] border-white px-12 py-2 font-semibold hover:bg-black hover:text-[#0082EF]" onClick={()=>{emaillogin(EmailID,Password)}}>
+                    Sign in
                   </button>
                 </div>
               </div>
