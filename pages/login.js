@@ -24,7 +24,7 @@ const googlelogin = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
-      window.location = "/";
+      window.location = "/admin";
     })
     .catch((error) => {
       // Handle Errors here.
