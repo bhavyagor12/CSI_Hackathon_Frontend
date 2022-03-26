@@ -1,12 +1,32 @@
 import React,{useState} from "react";
 import Link from "next/link";
+import { addDoc, collection } from "firebase/firestore";
+
 function Projects() {
   const [ProjectName,setProjectName]=useState("");
   const [ClientName,setClientName]=useState("");
   const [Description,setDescription]=useState("");
   const [TotalWorkers,setTotalWorkers]=useState("");
   const [Startdate,setStartdate]=useState("");
-  const [Duration,SetDuration]=useState("");
+  const [Duration,setDuration]=useState("");
+
+  const addProject=(ProjectName,ClientName,Description,TotalWorkers,Startdate,Duration)=>{
+    try{
+    const docRef = addDoc(collection(db, "Projects"), {
+      ProjectName: {ProjectName},
+      ClientName: {ClientName},
+      Description: {Description},
+      TotalWorkers: {TotalWorkers},
+      Startdate: {Startdate},
+      Duration: {Duration},
+    });
+    console.log("Document written with ID: ", docRef.id);
+    } 
+    catch (e) {
+        console.error("Error adding document: ", e);
+      }
+
+  }
 
   
   return (
@@ -24,7 +44,7 @@ function Projects() {
                 class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
                 for="grid-first-name"
                 value={ProjectName}
-                onChange={()=>setProjectName()}
+                onChange={(e)=>setProjectName(e.target.value)}
               >
                 Project Name
               </label>
@@ -50,6 +70,8 @@ function Projects() {
                 id="grid-last-name"
                 type="text"
                 placeholder=""
+                value={ClientName}
+                onChange={(e)=>setClientName(e.target.value)}
               />
             </div>
           </div>
@@ -66,6 +88,8 @@ function Projects() {
                 id="grid-password"
                 type="text"
                 placeholder=""
+                value={Description}
+                onChange={(e)=>setDescription(e.target.value)}
               />
               <p class="text-xs italic text-gray-600">
                 A DETAILED DESC IS HELPFUL
@@ -85,6 +109,8 @@ function Projects() {
                 id="grid-city"
                 type="numbers"
                 placeholder=""
+                value={TotalWorkers}
+                onChange={(e)=>setTotalWorkers(e.target.value)}
               />
             </div>
             <div class="mb-6 w-full px-3 md:mb-0 md:w-1/3">
@@ -99,6 +125,8 @@ function Projects() {
                 id="grid-zip"
                 type="date"
                 placeholder=""
+                value={Startdate}
+                onChange={(e)=>setStartdate(e.target.value)}
               />
             </div>
 
@@ -114,19 +142,21 @@ function Projects() {
                 id="grid-zip"
                 type="text"
                 placeholder=""
+                value={Duration}
+                onChange={(e)=>setDuration(e.target.value)}
               />
             </div>
             <div class="m-6 mb-6 w-full px-3 md:mb-0 md:w-1/3">
               <div className="my-10">
                 <div className="flex justify-between">
-                  <button className="mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
-                    <Link href="">ADD</Link>
+                  <button className="mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]" onClick={()=>addProject()}>
+                    ADD
                   </button>
                   <button className="inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
-                    <Link href="">UPDATE</Link>
+                    UPDATE
                   </button>
                   <button className="ml-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
-                    <Link href="">DELETE</Link>
+                    DELETE
                   </button>
                 </div>
               </div>
