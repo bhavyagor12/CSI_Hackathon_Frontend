@@ -1,6 +1,8 @@
 import React,{useState} from "react";
 import Link from "next/link";
-import { addDoc, collection } from "firebase/firestore";
+import { setDoc,addDoc, collection } from "firebase/firestore";
+import firebase from "../../firebase/initFirebase";
+import { getFirestore } from "firebase/firestore";
 
 function Projects() {
   const [ProjectName,setProjectName]=useState("");
@@ -9,24 +11,66 @@ function Projects() {
   const [TotalWorkers,setTotalWorkers]=useState("");
   const [Startdate,setStartdate]=useState("");
   const [Duration,setDuration]=useState("");
+  const db = getFirestore(firebase);
 
-  const addProject=(ProjectName,ClientName,Description,TotalWorkers,Startdate,Duration)=>{
+
+  const addProject=(e)=>{
+    e.preventDefault();
+    console.log(ProjectName)
+    try{
+    const docRef = addDoc(collection(db, "Projects"), {
+      ProjectName: ProjectName,
+      ClientName: ClientName,
+      Description: Description,
+      TotalWorkers: TotalWorkers,
+      Startdate: Startdate,
+      Duration: Duration,
+    });
+    console.log("Document written with ID: ", docRef.id);
+    }
+    catch (error) {
+      console.error("Error adding document: ", e);
+    }
+  }
+
+  const updateProject=(e)=>{
     e.preventDefault();
     try{
     const docRef = setDoc(collection(db, "Projects"), {
-      ProjectName: {ProjectName},
-      ClientName: {ClientName},
-      Description: {Description},
-      TotalWorkers: {TotalWorkers},
-      Startdate: {Startdate},
-      Duration: {Duration},
+      ProjectName: ProjectName,
+      ClientName: ClientName,
+      Description: Description,
+      TotalWorkers: TotalWorkers,
+      Startdate: Startdate,
+      Duration: Duration,
     });
     console.log("Document written with ID: ", docRef.id);
-    } 
-    catch (e) {
-        console.error("Error adding document: ", e);
-      }
+    }
+    catch (error) {
+      console.error("Error adding document: ", e);
+    }
+  }
 
+  const deleteProject=(e)=>{
+    e.preventDefault();
+    
+    try{
+      console.log(ProjectName);
+    const docRef = addDoc(collection(db, "Projects"), {
+      
+      ProjectName: ProjectName,
+      ClientName: ClientName,
+      Description: Description,
+      TotalWorkers: TotalWorkers,
+      Startdate: Startdate,
+      Duration: Duration,
+
+    });
+    console.log("Document written with ID: ", docRef.id);
+    }
+    catch (error) {
+      console.error("Error adding document: ", e);
+    }
   }
 
   
@@ -43,9 +87,6 @@ function Projects() {
             <div className="mb-6 w-full px-3 md:mb-0 md:w-1/2">
               <label
                 className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
-                
-                value={ProjectName}
-                onChange={(e)=>setProjectName(e.target.value)}
               >
                 Project Name
               </label>
@@ -54,6 +95,8 @@ function Projects() {
                 id="grid-first-name"
                 type="text"
                 placeholder=""
+                value={ProjectName}
+                onChange={(e)=>setProjectName(e.target.value)}
               />
               <p className="text-xs italic text-red-500">
                 Please fill out this field.
@@ -147,7 +190,7 @@ function Projects() {
             <div className="m-6 mb-6 w-full px-3 md:mb-0 md:w-1/3">
               <div className="my-10">
                 <div className="flex justify-between">
-                  <button className="mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]" onSubmit={(e)=>addProject()}>
+                  <button className="mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]" onClick={(e)=>addProject(e)}>
                     ADD
                   </button>
                   <button className="inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
