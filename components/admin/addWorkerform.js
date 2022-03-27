@@ -27,10 +27,6 @@ function addformm() {
 
   const addWorker = (e) => {
     e.preventDefault();
-    const PDFRef = ref(storage, PDF+"");
-    uploadBytes(PDFRef, PDF).then((snapshot) => {
-      console.log('Uploaded a blob or file!');
-    });
     
     
     try {
@@ -41,9 +37,7 @@ function addformm() {
         Salary:  Salary ,
         Loc:  Loc ,
         Insurance:  Insurance ,
-        pdfref: PDFRef,
-         
-
+        
       });
       console.log("Document written with ID: ", WorkerRef.id);
     } catch (e) {
