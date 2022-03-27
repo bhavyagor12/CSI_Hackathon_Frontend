@@ -7,10 +7,14 @@ import firebase from "../../firebase/initFirebase";
 import { getFirestore } from "firebase/firestore";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import CONTINUEE from "../../pages/workers/continue_page";
+import Papa from "papaparse";
+import Webcam from "react-webcam";
 
 function addformm() {
   const storage = getStorage();
   const db = getFirestore(firebase);
+
+  const [ImageSrc, setSrc] = useState("");
   const [PDF, setPDF] = useState("");
   const [Name, setName] = useState("");
   const [Age, setAge] = useState("");
@@ -18,6 +22,11 @@ function addformm() {
   const [Salary, setSalary] = useState("");
   const [Loc, setLocation] = useState("");
   const [Insurance, setInsurance] = useState("");
+  const videoConstraints = {
+    width: 1280,
+    height: 720,
+    facingMode: "user",
+  };
 
   const addWorker = (e) => {
     e.preventDefault();
@@ -30,6 +39,7 @@ function addformm() {
         Salary: Salary,
         Loc: Loc,
         Insurance: Insurance,
+        Profile: ImageSrc,
       });
       console.log("Document written with ID: ", WorkerRef.id);
     } catch (e) {
@@ -178,8 +188,44 @@ function addformm() {
               </div>
             </div>
           </div>
+          <label>
+            Enter Data in CSV:
+            <input
+              type="file"
+              accept=".csv"
+              onChange={(e) => {
+                const files = e.target.files;
+                console.log(files);
+                if (files) {
+                  console.log(files[0]);
+                  Papa.parse(files[0], {
+                    complete: function (results) {
+                      console.log("Finished:", results.data.count);
+                    },
+                  });
+                }
+              }}
+            />
+          </label>
           <div className="text-center ml-10 mr-5 bg-blue-600 rounded-lg border-2 border-blue-600 font-semibold hover:blue-600 mb-7">
-            <WebcamCapture className="" />
+            <Webcam
+              audio={false}
+              height={500}
+              screenshotFormat="image/jpeg"
+              width={500}
+              videoConstraints={videoConstraints}
+            >
+              {({ getScreenshot }) => (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSrc(getScreenshot());
+                  }}
+                >
+                  CAPTURE PICTURE
+                </button>
+              )}
+            </Webcam>
           </div>
           <button className="ml-48 inline-block rounded-full bg-blue-600 border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
             <Link href="/workers/dashboardWorkers">SUBMIT</Link>
