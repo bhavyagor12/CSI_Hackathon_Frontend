@@ -38,7 +38,7 @@ function Navbar1() {
           <Link href="/workers/maps2">
             <MapIcon className="navBtn" />
           </Link>
-          <Link href="/workers/newsPage">
+          <Link href="/newsPage">
             <NewspaperIcon className="navBtn" />
           </Link>
           <Link href="/workers/profile">

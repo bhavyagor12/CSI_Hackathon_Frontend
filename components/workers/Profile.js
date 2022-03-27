@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar1 from "../workers/Navbar1";
-const Profile = ({ name, username, phone, email, address }) => {
+const Profile = ({ name, username, image, email, address }) => {
   return (
     <div className="flex-grow bg-gradient-to-r from-cyan-500 to-blue-500 min-h-screen">
       <Navbar1 />
@@ -25,22 +25,26 @@ const Profile = ({ name, username, phone, email, address }) => {
           </div>
           <div className=" ">
             <div className="px-14 text-center">
-              <h2 className="text-3xl font-bold text-gray-800">{name}</h2>
-              <p className="mt-2 text-gray-400">{username}</p>
-              <p className="mt-2 text-gray-600">{address}</p>
+              <h2 className="text-3xl font-bold text-gray-800">Mohit Dhiman</h2>
+              <p className="mt-2 text-gray-400">@immohitdhiman</p>
+              <p className="mt-2 text-gray-600">
+                Address :Saraswat Colony, Mahim West, Mahim, Mumbai, Maharashtra
+              </p>
             </div>
             <hr className="mt-6" />
             <div className="flex  bg-gray-50 ">
               <div className="w-1/2 cursor-pointer p-4 text-center hover:bg-gray-100">
                 <p>
-                  <span className="font-semibold">{phone}</span>
+                  <span className="font-semibold">9382345453</span>
                 </p>
               </div>
               <div className="border"></div>
               <div className="w-1/2 cursor-pointer p-4 text-center hover:bg-gray-100">
                 <p>
                   {" "}
-                  <span className="font-semibold">{email}</span>{" "}
+                  <span className="font-semibold">
+                    MohitDhiman@gmail.com
+                  </span>{" "}
                 </p>
               </div>
             </div>

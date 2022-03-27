@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import {useEffect} from 'react';
+import { useEffect } from "react";
 import Title from "../components/Title";
 import Particle from "../components/Particles";
 import Firework from "../components/Firework";
 import Link from "next/link";
 // import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { FaGoogle, FaRegEnvelope, FaLock } from "react-icons/fa";
 import { firebase, auth } from "../firebase/initFirebase";
@@ -37,22 +36,22 @@ const googlelogin = () => {
     });
 };
 
-const [currentUser, setCurrentUser] = useState(null);
+// const [currentUser, setCurrentUser] = useState(null);
 
 // Listen to onAuthStateChanged
-useEffect(() => {
-    const firebase = getFirebase();
+// useEffect(() => {
+//   const firebase = getFirebase();
 
-    if (firebase) {
-      firebase.auth().onAuthStateChanged((authUser) => {
-        if (authUser) {
-          setCurrentUser(authUser.email);
-        } else {
-          setCurrentUser(null);
-        }
-      });
-    }
-  }, [])
+//   if (firebase) {
+//     firebase.auth().onAuthStateChanged((authUser) => {
+//       if (authUser) {
+//         setCurrentUser(authUser.email);
+//       } else {
+//         setCurrentUser(null);
+//       }
+//     });
+//   }
+// }, []);
 
 const emaillogin = (email, password) => {
   console.log(email + password);
@@ -160,7 +159,6 @@ const login = () => {
 };
 
 export default login;
-
 
 // const auth = getAuth(firebaseApp);
 
