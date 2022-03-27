@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 import Link from "next/link";
 import { addDoc, collection } from "firebase/firestore";
-import WebcamCapture from '../../pages/WebcamCapture';
-import Aadhar from './aadhar';
+import WebcamCapture from "../../pages/WebcamCapture";
+import Aadhar from "./aadhar";
 
 function addformm() {
   const [Name, setProjectName] = useState("");
@@ -12,24 +12,16 @@ function addformm() {
   const [Loc, setLocation] = useState("");
   const [Insurance, setInsurance] = useState("");
 
-  const addProject = (
-    Name,
-    Age,
-    Description,
-    Salary,
-    Loc,
-    Insurance,
-    
-  ) => {
+  const addProject = (Name, Age, Description, Salary, Loc, Insurance) => {
     try {
       const docRef = addDoc(collection(db, "Projects"), {
         Name: { Name },
-        Age : {Age},
+        Age: { Age },
         // ClientName: { ClientName },
         Description: { Description },
         Salary: { Salary },
         Loc: { Loc },
-        Insurance : {Insurance},
+        Insurance: { Insurance },
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
@@ -144,32 +136,23 @@ function addformm() {
               <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
                 UPLOAD AADHAR CARD AS PDF ONLY ****
               </label>
-              
-              
-             
-              <div className='items-center justify-center'>
-              <Aadhar />
-             
-              
+
+              <div className="items-center justify-center">
+                <Aadhar />
               </div>
-              
             </div>
             {/* <div className=" text-center font-semibold mb-10 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none">
             <WebcamCapture  />
             </div> */}
-            <div>
-
-            </div>
+            <div></div>
             <div className="m-6 mb-6 w-full px-3 md:mb-0 md:w-1/3">
               <div className="my-10">
                 <div className="flex justify-between">
                   <button
                     className="ml-32 mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]"
                     onClick={() => addProject()}
-                    >
-                      <Link href="/workers/continue_page">
-                    CONTINUE
-                    </Link>
+                  >
+                    <Link href="/workers/continue_page">CONTINUE</Link>
                   </button>
                   {/* <button className="inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
                     UPDATE
@@ -177,7 +160,6 @@ function addformm() {
                   {/* <button className="ml-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
                     DELETE
                   </button> */}
-                  
                 </div>
               </div>
             </div>
@@ -188,4 +170,4 @@ function addformm() {
   );
 }
 
-export default addformm
+export default addformm;

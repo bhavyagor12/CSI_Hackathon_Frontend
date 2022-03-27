@@ -1,15 +1,16 @@
 import React from "react";
 import Sidebar from "../../components/admin/Sidebar.js";
-import Navbar from "../../components/admin/Navbar.js";
-import Form from "../../components/admin/Projects";
-const projects = () => {
+import ProjectTable from "../../components/admin/ProjectTable";
+
+
+
+function dashboard() {
   return (
     <div className="flex ">
       <Sidebar />
-
-      <Form />
+      <ProjectTable/>
     </div>
   );
-};
+}
 
-export default projects;
+export default dashboard;
