@@ -59,7 +59,7 @@ const emaillogin = (email, password) => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      window.location = "/";
+      window.location = "/workers";
       // ...
     })
     .catch((error) => {
@@ -143,6 +143,9 @@ const login = () => {
               <p className="mb-10">
                 {" "}
                 You have to login to use our amazing features
+                <br />
+                you can use these buttons to check the pages without
+                functionality
               </p>
               <button className="inline-block rounded-full mb-5 border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
                 <Link href="/workers">Explore as worker</Link>
