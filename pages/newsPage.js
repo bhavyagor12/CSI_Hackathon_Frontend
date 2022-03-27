@@ -2,11 +2,12 @@ import React from "react";
 import { NewsContextProvider } from "../context/NewsContext";
 import Sidebar from ".././components/admin/Sidebar";
 import News from "../components/news/News";
+import Navbar1
 function newsPage() {
   return (
     <NewsContextProvider>
       <div className="flex">
-        <Sidebar />
+        <Navbar
         <News />
       </div>
     </NewsContextProvider>

@@ -41,9 +41,9 @@ export default function Sidebar() {
         </button>
         <button className="flex items-center space-x-2 hover:text-white">
           <BsNewspaper className="h-5 w-5" />
-          <Link href="/newsPage">
+          {/* <Link href="/newsPage"> */}
             <p>Fetch Workers</p>
-          </Link>
+          {/* </Link> */}
         </button>
         <button className="flex items-center space-x-2 hover:text-white">
           <BiLogOut className="h-5 w-5" />

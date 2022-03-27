@@ -5,7 +5,7 @@ import Link from "next/link";
 const NewsItem = ({ data }) => {
   return (
     <div className="flex items-end">
-      <Link>
+      <Link href={data.url}>
         <div className="m-10 flex p-10">
           <div className="w-200 max-w-sm overflow-hidden rounded-xl bg-gray-700 shadow-lg">
             <div className="px-6 py-4">
