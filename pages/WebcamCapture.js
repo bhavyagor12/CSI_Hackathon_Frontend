@@ -1,11 +1,7 @@
 import React from 'react'
 import Webcam from "react-webcam";
 
-const videoConstraints = {
-    width: 1280,
-    height: 720,
-    facingMode: "user"
-  };
+
   
   const WebcamCapture = () => (
 
@@ -14,7 +10,11 @@ const videoConstraints = {
       height={500}
       screenshotFormat="image/jpeg"
       width={500}
-      videoConstraints={videoConstraints}
+      videoConstraints={{
+        width: 1280,
+        height: 720,
+        facingMode: "user"
+      }} 
     >
       {({ getScreenshot }) => (
         <button
