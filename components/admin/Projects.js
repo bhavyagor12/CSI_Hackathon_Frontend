@@ -16,12 +16,13 @@ function Projects() {
 
   const addProject=(e)=>{
     e.preventDefault();
+    alert("Added project")
+    
     console.log(ProjectName)
     try{
     const docRef = addDoc(collection(db, "Projects2"), {
       ProjectName: ProjectName,
       ClientName: ClientName,
-      Description: Description,
       TotalWorkers: TotalWorkers,
       Startdate: Startdate,
       Duration: Duration,
@@ -151,7 +152,7 @@ function Projects() {
             </div>
             <div className="m-6 mb-6 w-full px-3 md:mb-0 md:w-1/3">
               <div className="flex items-center justify-center">
-                <button className="mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]" onClick={(e)=>addProject(e)}>
+                <button className="mr-5 inline-block rounded-full border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]" onClick={(e)=>addProject(e) }>
                   ADD
                 </button>
               </div>

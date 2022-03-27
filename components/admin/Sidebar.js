@@ -77,6 +77,7 @@ export default function Sidebar() {
             <p>Logout</p>
           </Link>
         </button>
+        
 
         <hr className="border-t-[0.1px] border-gray-900" />
       </div>
