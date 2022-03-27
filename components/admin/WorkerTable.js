@@ -3,7 +3,7 @@ import Link from "next/link";
 import {addDoc, collection, query, getDocs } from "firebase/firestore";
 import firebase from "../../firebase/initFirebase";
 import { getFirestore } from "firebase/firestore";
-import { CSVLink, CSVDownload } from "react-csv";
+
 import htmlToReact, { Parser } from "html-to-react";
 
 
@@ -36,10 +36,11 @@ export default function WorkerTable() {
     }, [])
     const Fetchdata = async()=>{
         const db = getFirestore(firebase);
-        const q = query(collection(db, "Workers"));
+        const q = query(collection(db, "Workers2"));
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
                 SetArr(Arr = [ ...Arr, doc.data()]);
+                
             });
             try {
                 const parser = new Parser(opts);
@@ -51,35 +52,50 @@ export default function WorkerTable() {
     }
 
     return (
-        <div>
-            <table className='w-max' id="workertable">
-            <tbody>
-                <tr>
+        <div className="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-900 py-10">
+      <h1 className="text-lg text-gray-400 font-medium">
+        Workers Record
+      </h1>
+      <div className="flex flex-col mt-6">
+        <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div className="shadow overflow-hidden sm:rounded-lg">
+              <table className="min-w-full text-sm text-gray-400">
+                <thead className="bg-gray-800 text-xs uppercase font-medium">
+                  <tr className="p-2">
+                    <th>Profile Pic</th>
+                    <th>Name</th>
                     <th>Age</th>
                     <th>Description</th>
                     <th>Insurance</th>
                     <th>Location</th>
-                    <th>Name</th>
-                    <th>Salary</th>
+                    
+                    
+                    
                 </tr>
+                </thead>
+                <tbody>
                 { 
                 Arr.map((retard) => {
                     return(
-                        <tr key={retard.ClientName}>   
+                        <tr key={retard.ClientName} className="p-5"> 
+                            <td><img  className= "object-conttain" src={retard.Profile}  width={150} height={150}/></td>
+                            <td>{retard.Name}</td>  
                             <td>{retard.Age}</td>
                             <td>{retard.Description}</td>
                             <td>{retard.Insurance}</td>
                             <td>{retard.Loc}</td>
-                            <td>{retard.Name}</td>
-                            <td>{retard.Salary}</td>
+                            
                         </tr>
                     )    
                     })
                 }
             </tbody>
             </table>
-            <button onClick={(e)=>download(e)}>ijl;</button>
+            </div>
+            </div></div>
+            
 
-        </div>
+        </div></div>
     )
 }

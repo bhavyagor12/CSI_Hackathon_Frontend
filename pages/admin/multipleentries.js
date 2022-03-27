@@ -4,6 +4,7 @@ import firebase from "../../firebase/initFirebase";
 import { getFirestore } from "firebase/firestore";
 import { addDoc, collection } from "firebase/firestore";
 import Particles from '../../components/Particles'
+import Sidebar from '../../components/admin/Sidebar';
 
 
 export default function MultipleEntries() {
@@ -95,9 +96,13 @@ export default function MultipleEntries() {
 
   
     return (
-    <div className='flex flex-col min-h-screen bg-[#024ca1]'>
-        <Particles />
-        <div className='grid place-content-center ml-10'>
+    <div className='flex min-h-screen bg-[#024ca1]'>
+        
+        <Sidebar />
+        <div className=' ml-72 flex items-center justify-center min-h-screen'>
+
+       
+        <div className='grid place-items-center ml-10'>
         <label className="font-bold">Enter Data in CSV:
         <input 
         type="file"
@@ -132,7 +137,7 @@ export default function MultipleEntries() {
             <button className='border-2 border-gray-200 rounded-full bg-blue-200 p-3 hover:bg-[#ffca02] mx-1 font-bold' onClick={(e)=>MultipleEntrySafety(e)}> Click to multiple entry into Safety</button> 
              
         </div>
-    
+        </div>
     </div>
     </div>
   )

@@ -12,7 +12,7 @@ function News(props) {
       <div className="fle-col flex items-center justify-center text-2xl text-white">
         <div className="mt-5 justify-center font-sans text-6xl font-bold ">
           <span className="mr-2 text-black ">Latest</span>
-          <span className="ml-2 mr-2 text-black">Developer News</span>
+          <span className="ml-2 mr-2 text-black">Construction News</span>
         </div>
       </div>
       <div className=" flex flex-col items-center justify-center text-center">

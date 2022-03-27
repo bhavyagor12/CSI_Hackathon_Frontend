@@ -3,7 +3,7 @@ import Form from "../../components/admin/addWorkerform";
 import Sidebar from "../../components/admin/Sidebar";
 
 
-const add = () => {
+const addWorker = () => {
   return (
     <div className="flex ">
       <Sidebar />
@@ -12,4 +12,4 @@ const add = () => {
   );
 };
 
-export default add;
+export default addWorker;
