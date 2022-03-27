@@ -28,19 +28,19 @@ function Navbar1() {
 
         {/* RIGHT*/}
         <div className="flex items-center justify-end space-x-4">
-          <Link href="/workers">
+          <Link href="/">
             <HomeIcon className="navBtn" />
           </Link>
-          <Link href="/reports">
+          <Link href="/workers/reports">
             <DocumentReportIcon className="navBtn" />
           </Link>
-          <Link href="/map">
+          <Link href="/workers/map">
             <MapIcon className="navBtn" />
           </Link>
-          <Link href="/newsPage">
+          <Link href="/workers/newsPage">
             <NewspaperIcon className="navBtn" />
           </Link>
-          <Link href="/profile">
+          <Link href="/workers/profile">
             <UserIcon className="navBtn" />
           </Link>
         </div>

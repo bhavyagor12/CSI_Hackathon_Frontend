@@ -10,16 +10,12 @@ import CONTINUEE from "../../pages/workers/continue_page";
 import Papa from "papaparse";
 import Webcam from "react-webcam";
 
-
-
-
-
-
 function addformm() {
   const storage = getStorage();
   const db = getFirestore(firebase);
-  const [ImageSrc,setSrc]=useState("");
-  const [PDF,setPDF]=useState("");
+
+  const [ImageSrc, setSrc] = useState("");
+  const [PDF, setPDF] = useState("");
   const [Name, setName] = useState("");
   const [Age, setAge] = useState("");
   const [Description, setDescription] = useState("");
@@ -29,26 +25,21 @@ function addformm() {
   const videoConstraints = {
     width: 1280,
     height: 720,
-    facingMode: "user"
+    facingMode: "user",
   };
-
-
-
 
   const addWorker = (e) => {
     e.preventDefault();
-    
-    
+
     try {
       const WorkerRef = addDoc(collection(db, "Workers"), {
-        Name:  Name ,
-        Age:  Age ,
-        Description:  Description ,
-        Salary:  Salary ,
-        Loc:  Loc ,
-        Insurance:  Insurance ,
+        Name: Name,
+        Age: Age,
+        Description: Description,
+        Salary: Salary,
+        Loc: Loc,
+        Insurance: Insurance,
         Profile: ImageSrc,
-        
       });
       console.log("Document written with ID: ", WorkerRef.id);
     } catch (e) {
@@ -67,9 +58,7 @@ function addformm() {
         <form className="w-full max-w-lg">
           <div className="-mx-3 mb-6 flex flex-wrap">
             <div className="mb-6 w-full px-3 md:mb-0 md:w-1/2">
-              <label
-                className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
-              >
+              <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
                 Name
               </label>
               <input
@@ -165,7 +154,15 @@ function addformm() {
               </label>
 
               <div className="items-center justify-center">
-                <input type="file" name="upload" accept="application/pdf,application/vnd.ms-excel"  onChange={(e)=> {setPDF(e.target.files[0]);console.log(e.target.files[0])}} />
+                <input
+                  type="file"
+                  name="upload"
+                  accept="application/pdf,application/vnd.ms-excel"
+                  onChange={(e) => {
+                    setPDF(e.target.files[0]);
+                    console.log(e.target.files[0]);
+                  }}
+                />
               </div>
             </div>
             {/* <div className=" text-center font-semibold mb-10 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none">
@@ -189,60 +186,53 @@ function addformm() {
                   </button> */}
                 </div>
               </div>
-              
             </div>
           </div>
-          <label>Enter Data in CSV:
-          <input
-          type="file"
-          accept=".csv"
-          onChange={(e) => {
-            const files = e.target.files;
-            console.log(files);
-            if (files) {
-              console.log(files[0]);
-              Papa.parse(files[0], {
-                complete: function(results) {
-                  console.log("Finished:", results.data.count);
-                }}
-              )
-            }
-          }}
-          />
+          <label>
+            Enter Data in CSV:
+            <input
+              type="file"
+              accept=".csv"
+              onChange={(e) => {
+                const files = e.target.files;
+                console.log(files);
+                if (files) {
+                  console.log(files[0]);
+                  Papa.parse(files[0], {
+                    complete: function (results) {
+                      console.log("Finished:", results.data.count);
+                    },
+                  });
+                }
+              }}
+            />
           </label>
           <div className="text-center ml-10 mr-5 bg-blue-600 rounded-lg border-2 border-blue-600 font-semibold hover:blue-600 mb-7">
-          <Webcam
-            audio={false}
-            height={500}
-            screenshotFormat="image/jpeg"
-            width={500}
-            videoConstraints={videoConstraints}
-          >
-            {({ getScreenshot }) => (
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setSrc(getScreenshot());
-                  
-                }}
-              >
-                CAPTURE PICTURE
-              </button>
-            )}
-          </Webcam>
+            <Webcam
+              audio={false}
+              height={500}
+              screenshotFormat="image/jpeg"
+              width={500}
+              videoConstraints={videoConstraints}
+            >
+              {({ getScreenshot }) => (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSrc(getScreenshot());
+                  }}
+                >
+                  CAPTURE PICTURE
+                </button>
+              )}
+            </Webcam>
           </div>
           <button className="ml-48 inline-block rounded-full bg-blue-600 border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
-          <Link href="/workers/dashboardWorkers">SUBMIT</Link>
-        </button>
-        
+            <Link href="/workers/dashboardWorkers">SUBMIT</Link>
+          </button>
         </form>
-
-        
-      
-    </div>
-        
       </div>
-    
+    </div>
   );
 }
 
