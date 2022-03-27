@@ -34,11 +34,8 @@ function Navbar1() {
           <Link href="/workers/reports">
             <DocumentReportIcon className="navBtn" />
           </Link>
-<<<<<<< Updated upstream
-          <Link href="/workers/map">
-=======
+
           <Link href="/workers/maps2">
->>>>>>> Stashed changes
             <MapIcon className="navBtn" />
           </Link>
           <Link href="/workers/newsPage">
