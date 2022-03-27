@@ -8,13 +8,10 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import CONTINUEE from "../../pages/workers/continue_page";
 
-
-
-
 function addformm() {
   const storage = getStorage();
   const db = getFirestore(firebase);
-  const [PDF,setPDF]=useState("");
+  const [PDF, setPDF] = useState("");
   const [Name, setName] = useState("");
   const [Age, setAge] = useState("");
   const [Description, setDescription] = useState("");
@@ -22,22 +19,17 @@ function addformm() {
   const [Loc, setLocation] = useState("");
   const [Insurance, setInsurance] = useState("");
 
-
-
-
   const addWorker = (e) => {
     e.preventDefault();
-    
-    
+
     try {
       const WorkerRef = addDoc(collection(db, "Workers"), {
-        Name:  Name ,
-        Age:  Age ,
-        Description:  Description ,
-        Salary:  Salary ,
-        Loc:  Loc ,
-        Insurance:  Insurance ,
-        
+        Name: Name,
+        Age: Age,
+        Description: Description,
+        Salary: Salary,
+        Loc: Loc,
+        Insurance: Insurance,
       });
       console.log("Document written with ID: ", WorkerRef.id);
     } catch (e) {
@@ -56,9 +48,7 @@ function addformm() {
         <form className="w-full max-w-lg">
           <div className="-mx-3 mb-6 flex flex-wrap">
             <div className="mb-6 w-full px-3 md:mb-0 md:w-1/2">
-              <label
-                className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
-              >
+              <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
                 Name
               </label>
               <input
@@ -154,7 +144,15 @@ function addformm() {
               </label>
 
               <div className="items-center justify-center">
-                <input type="file" name="upload" accept="application/pdf,application/vnd.ms-excel"  onChange={(e)=> {setPDF(e.target.files[0]);console.log(e.target.files[0])}} />
+                <input
+                  type="file"
+                  name="upload"
+                  accept="application/pdf,application/vnd.ms-excel"
+                  onChange={(e) => {
+                    setPDF(e.target.files[0]);
+                    console.log(e.target.files[0]);
+                  }}
+                />
               </div>
             </div>
             {/* <div className=" text-center font-semibold mb-10 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none">
@@ -178,17 +176,15 @@ function addformm() {
                   </button> */}
                 </div>
               </div>
-              
             </div>
           </div>
           <div className="text-center ml-10 mr-5 bg-blue-600 rounded-lg border-2 border-blue-600 font-semibold hover:blue-600 mb-7">
-          <WebcamCapture className=""/>
+            <WebcamCapture className="" />
           </div>
           <button className="ml-48 inline-block rounded-full bg-blue-600 border-2 border-white px-12 py-2 font-semibold hover:bg-white hover:text-[#0082EF]">
-          <Link href="/workers/dashboardWorkers">SUBMIT</Link>
-        </button>
+            <Link href="/workers/dashboardWorkers">SUBMIT</Link>
+          </button>
         </form>
-        
       </div>
     </div>
   );

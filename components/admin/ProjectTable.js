@@ -43,12 +43,24 @@ const ProjectTable = () => {
           {Arr.map((retard) => {
             return (
               <tr key={retard.ClientName}>
-                <td>{retard.ClientName}</td>
-                <td>{retard.Description}</td>
-                <td>{retard.Duration}</td>
-                <td>{retard.ProjectName}</td>
-                <td>{retard.Startdate}</td>
-                <td>{retard.TotalWorkers}</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {retard.ClientName}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {retard.Description}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {retard.Duration}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {retard.ProjectName}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {retard.Startdate}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {retard.TotalWorkers}
+                </td>
               </tr>
             );
           })}

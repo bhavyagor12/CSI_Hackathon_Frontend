@@ -16,30 +16,18 @@ function News(props) {
         </div>
       </div>
       <div className="flex">
-      <div className="w-1/2">
-      <div className=" flex flex-col items-center justify-center text-center ">
-        {data
-          ? data.articles.map((news) => (
-              <div className="flex flex justify-center mt-8 ml-20 mb-1.5">
-                {" "}
-                <NewsItem data={news} key={news_url} />{" "}
-              </div>
-            ))
-          : "no news"}
-      </div>
-      </div>
-      <div className="w-1/2">
-      <div className=" flex flex-col items-center justify-center text-center">
-        {data
-          ? data.articles.map((news) => (
-              <div className="flex flex justify-center mt-8 mr-20 mb-1.5">
-                {" "}
-                <NewsItem data={news} key={news_url} />{" "}
-              </div>
-            ))
-          : "no news"}
-      </div>
-      </div>
+        <div className="w-1/2">
+          <div className=" flex flex-col items-center justify-center text-center ">
+            {data
+              ? data.articles.map((news) => (
+                  <div className=" flex justify-center mt-8 ml-20 mb-1.5">
+                    {" "}
+                    <NewsItem data={news} key={news_url} />{" "}
+                  </div>
+                ))
+              : "no news"}
+          </div>
+        </div>
       </div>
     </div>
   );

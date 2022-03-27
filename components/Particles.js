@@ -17,6 +17,9 @@ function Particle() {
                 value_area: 1200,
               },
             },
+            color: {
+              value: ["#ffff00"],
+            },
             shape: {
               type: "circle",
               stroke: {
@@ -47,7 +50,7 @@ function Particle() {
               },
             },
             size: {
-              value: 4,
+              value: 5,
               random: true,
               anim: {
                 speed: 40,
