@@ -18,7 +18,7 @@ function Projects() {
     e.preventDefault();
     console.log(ProjectName)
     try{
-    const docRef = addDoc(collection(db, "Projects"), {
+    const docRef = addDoc(collection(db, "Projects2"), {
       ProjectName: ProjectName,
       ClientName: ClientName,
       Description: Description,

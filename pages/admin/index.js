@@ -7,6 +7,7 @@ const admin = () => {
     <div className="flex ">
       <Sidebar />
       <ProjectTable />
+
     </div>
   );
 };
