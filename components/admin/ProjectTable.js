@@ -20,7 +20,7 @@ const ProjectTable = () => {
   }, []);
   const Fetchdata = async () => {
     const db = getFirestore(firebase);
-    const q = query(collection(db, "Projects"));
+    const q = query(collection(db, "Projects2"));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       SetArr((Arr = [...Arr, doc.data()]));

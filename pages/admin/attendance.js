@@ -14,12 +14,7 @@ const attendance = () => {
     <div className="flex bg-gray-900   ">
       <Sidebar />
       <AttendanceTable />
-      <VictoryPie
-        data={data}
-        x="quarter"
-        y="earnings"
-        colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
-      />
+     
     </div>
   );
 };

@@ -66,7 +66,7 @@ const emaillogin = (email, password) => {
       alert("Error signing up");
       const errorCode = error.code;
       const errorMessage = error.message;
-      window.location = "/";
+      window.location = "/workers";
       // ..
     });
 };

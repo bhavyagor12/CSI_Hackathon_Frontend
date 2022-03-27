@@ -53,9 +53,18 @@ export default function MultipleEntries() {
         console.log(dataset);
         
         for (var i = 0; i < 5; i++){
-        const docRef = addDoc(collection(db, "Attendance"), {
+        const docRef = addDoc(collection(db, "Attendance2"), {
             Name: dataset[0][i][0],
-            Presentee: dataset[0][i][1],
+            Day1: dataset[0][i][1],
+            Day2: dataset[0][i][2],
+            Day3: dataset[0][i][3],
+            Day4: dataset[0][i][4],
+            Day5: dataset[0][i][5],
+            Day6: dataset[0][i][6],
+            Day7: dataset[0][i][7],
+            Day8: dataset[0][i][8],
+            Day9: dataset[0][i][9],
+            Day10: dataset[0][i][10],
         });
         console.log("Document written with ID: ", docRef.id);
         }
@@ -64,11 +73,21 @@ export default function MultipleEntries() {
     const MultipleEntrySafety=(e)=>
     {
         const db = getFirestore(firebase);
-        console.log(dataset);
+        console.log(dataset[0][0][0]);
         for (var i = 0; i < 5; i++){
-        const docRef = addDoc(collection(db, "Safety"), {
+        const docRef = addDoc(collection(db, "Safety2"), {
             Name: dataset[0][i][0],
-            Safety: dataset[0][i][1],
+            Day1: dataset[0][i][1],
+            Day2: dataset[0][i][2],
+            Day3: dataset[0][i][3],
+            Day4: dataset[0][i][4],
+            Day5: dataset[0][i][5],
+            Day6: dataset[0][i][6],
+            Day7: dataset[0][i][7],
+            Day8: dataset[0][i][8],
+            Day9: dataset[0][i][9],
+            Day10: dataset[0][i][10],
+            TotalViolations: dataset[0][i][11],
         });
         console.log("Document written with ID: ", docRef.id);
         }
