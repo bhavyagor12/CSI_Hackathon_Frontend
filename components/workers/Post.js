@@ -32,7 +32,7 @@ function Post({ id, username, image, description, location }) {
           </p>
           <p className="truncate">
             <span className="font-bold mr-1">Location: </span>
-            <Link href="">{location}</Link>
+            <Link href="/workers/maps1">{location}</Link>
           </p>
         </div>
 

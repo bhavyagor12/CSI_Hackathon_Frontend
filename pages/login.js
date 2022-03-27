@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import {useEffect} from 'react';
 import Title from "../components/Title";
 import Particle from "../components/Particles";
 import Firework from "../components/Firework";
 import Link from "next/link";
+// import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { FaGoogle, FaRegEnvelope, FaLock } from "react-icons/fa";
 import { firebase, auth } from "../firebase/initFirebase";
@@ -33,6 +36,23 @@ const googlelogin = () => {
       // ...
     });
 };
+
+const [currentUser, setCurrentUser] = useState(null);
+
+// Listen to onAuthStateChanged
+useEffect(() => {
+    const firebase = getFirebase();
+
+    if (firebase) {
+      firebase.auth().onAuthStateChanged((authUser) => {
+        if (authUser) {
+          setCurrentUser(authUser.email);
+        } else {
+          setCurrentUser(null);
+        }
+      });
+    }
+  }, [])
 
 const emaillogin = (email, password) => {
   console.log(email + password);
@@ -140,3 +160,41 @@ const login = () => {
 };
 
 export default login;
+
+
+// const auth = getAuth(firebaseApp);
+
+// const login = () => {
+//   signInWithEmailAndPassword(auth, 'test@test.com', 'password');
+// };
+// const logout = () => {
+//   signOut(auth);
+// };
+
+// const CurrentUser = () => {
+//   const [user, loading, error] = useAuthState(auth);
+
+//   if (loading) {
+//     return (
+//       <div>
+//         <p>Initialising User...</p>
+//       </div>
+//     );
+//   }
+//   if (error) {
+//     return (
+//       <div>
+//         <p>Error: {error}</p>
+//       </div>
+//     );
+//   }
+//   if (user) {
+//     return (
+//       <div>
+//         <p>Current User: {user.email}</p>
+//         <button onClick={logout}>Log out</button>
+//       </div>
+//     );
+//   }
+//   return <button onClick={login}>Log in</button>;
+// };
