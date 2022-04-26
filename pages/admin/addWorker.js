@@ -13,3 +13,4 @@ const addWorker = () => {
 };
 
 export default addWorker;
+  

@@ -17,6 +17,7 @@ import Webcam from "react-webcam";
 function addformm() {
   const storage = getStorage();
   const db = getFirestore(firebase);
+  
   const [ImageSrc,setSrc]=useState("");
   const [PDF,setPDF]=useState("");
   const [Name, setName] = useState("");
@@ -25,6 +26,7 @@ function addformm() {
   const [Salary, setSalary] = useState("");
   const [Loc, setLocation] = useState("");
   const [Insurance, setInsurance] = useState("");
+  
   const videoConstraints = {
     width: 1280,
     height: 720,

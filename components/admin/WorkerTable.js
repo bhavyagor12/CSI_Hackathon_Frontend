@@ -72,7 +72,7 @@ export default function WorkerTable() {
                     
                     
                     
-                </tr>
+                </tr> 
                 </thead>
                 <tbody>
                 { 
