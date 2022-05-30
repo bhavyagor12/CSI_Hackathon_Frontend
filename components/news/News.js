@@ -5,7 +5,7 @@ function News(props) {
   const { data } = useContext(NewsContext);
   console.log(data);
   const news_url =
-    "https://newsapi.org/v2/top-headlines?q=constructionworkers&from=2022-02-26&sortBy=publishedAt&apiKey=e3f040cc8e7743dd86d4d98f15527d72";
+    "https://newsapi.org/v2/everything?q=constructionworkers&from=2022-05-29&to=2022-05-29&sortBy=popularity&apiKey=1e33af2e07744c7292e733548717e4a4";
 
   return (
     <div className="min-h-screen flex-grow  flex-col  bg-gradient-to-r from-cyan-500 to-blue-500">
