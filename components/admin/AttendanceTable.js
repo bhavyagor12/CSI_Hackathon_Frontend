@@ -26,15 +26,15 @@ const AttendanceTable = () => {
 
   return (
     <div className="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-900 py-10">
-      <h1 className="text-lg text-gray-400 font-medium">
+      <h1 className="text-3xl text-gray-400">
         Workers Attendance Record
       </h1>
       <div className="flex flex-col mt-6">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden sm:rounded-lg">
-              <table className="min-w-full text-sm text-gray-400">
-                <thead className="bg-gray-800 text-xs uppercase font-medium">
+              <table className="table-fixed">
+                <thead className="bg-gray-800 text-zinc-100 text-lg uppercase font-medium">
                   <tr className="p-2">
                     <th scope="col" className="px-6 py-3 text-left tracking-wider">
                       Worker name
@@ -64,7 +64,7 @@ const AttendanceTable = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-gray-800">
+                <tbody className="bg-gray-800 text-zinc-400 text-center text-md">
                   {Arr.map((item)=>(
                     <tr className="ml-2 ">
                       <td className="grid place-items-center">{item.Name}</td>

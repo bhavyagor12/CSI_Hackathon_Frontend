@@ -61,7 +61,7 @@ export default function WorkerTable() {
           <div className="py-2 align-middle inline-block sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden sm:rounded-lg">
               <table className="w-full text-sm table-fixed">
-                <thead className="bg-gray-800 text-xs uppercase font-medium text-zinc-100">
+                <thead className="bg-gray-800 text-lg uppercase font-medium text-zinc-100 border-zinc-800 border-b-2 border-x-2">
                   <tr className="p-5">
                     <th className="p-2">Profile Pic</th>
                     <th className="p-2">Name</th>
@@ -78,7 +78,7 @@ export default function WorkerTable() {
                 { 
                 Arr.map((retard) => {
                     return(
-                        <tr key={retard.ClientName} className=" text-zinc-400 bg-gray-800"> 
+                        <tr key={retard.ClientName} className=" text-zinc-400 bg-gray-800 border-2 border-y-zinc-400"> 
                             <td><img  className= "object-contain mb-2 px-5" src={retard.Profile}  width={150} height={150}/></td>
                             <td>{retard.Name}</td>  
                             <td>{retard.Age}</td>

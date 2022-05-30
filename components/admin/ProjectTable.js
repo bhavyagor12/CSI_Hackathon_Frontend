@@ -29,7 +29,7 @@ const ProjectTable = () => {
 
   return (
     <div class="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-900 py-10">
-      <h1 class="text-2xl text-gray-400 font-medium">Projects Table</h1>
+      <h1 class="text-3xl text-gray-400 font-medium">Projects Table</h1>
       <table className="table-fixed">
         <tbody className="bg-gray-800 text-zinc-100 text-center">
           <tr className="bg-black bg-opacity-20">
