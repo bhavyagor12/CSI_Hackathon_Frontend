@@ -64,7 +64,7 @@ const SafetyTable = () => {
                 </thead>
                 <tbody className="bg-gray-800 text-zinc-400 text-center"> 
                   {Arr.map((item)=>(
-                    <tr className="ml-2  ">
+                    <tr className="ml-2  "> 
                       <td className="grid place-items-center">{item.Name}</td>
                       <td>{item.TotalViolations}</td>
                       <td>{item.Day1}</td>
