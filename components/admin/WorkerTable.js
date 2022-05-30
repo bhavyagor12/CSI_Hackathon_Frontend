@@ -52,16 +52,16 @@ export default function WorkerTable() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-900 py-10">
+        <div className="flex flex-col items-center justify-center  bg-gray-900 py-10 overflow-hidden">
       <h1 className="text-lg text-gray-400 font-medium">
         Workers Record
       </h1>
       <div className="flex flex-col mt-6">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div className="py-2 align-middle inline-block sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden sm:rounded-lg">
-              <table className="w-full text-sm text-gray-400">
-                <thead className="bg-gray-800 text-xs uppercase font-medium">
+              <table className="w-full text-sm table-fixed">
+                <thead className="bg-gray-800 text-xs uppercase font-medium text-zinc-100">
                   <tr className="p-5">
                     <th className="p-2">Profile Pic</th>
                     <th className="p-2">Name</th>
@@ -78,8 +78,8 @@ export default function WorkerTable() {
                 { 
                 Arr.map((retard) => {
                     return(
-                        <tr key={retard.ClientName} className="p-5"> 
-                            <td><img  className= "object-contain mb-2 mr-5" src={retard.Profile}  width={150} height={150}/></td>
+                        <tr key={retard.ClientName} className=" text-zinc-400 bg-gray-800"> 
+                            <td><img  className= "object-contain mb-2 px-5" src={retard.Profile}  width={150} height={150}/></td>
                             <td>{retard.Name}</td>  
                             <td>{retard.Age}</td>
                             <td>{retard.Description}</td>
