@@ -35,7 +35,7 @@ export default function Sidebar() {
         </button>
         <button className="flex items-center space-x-2 hover:text-white">
           <BsList className="h-5 w-5" />
-          <Link href="/admin/addworker">
+          <Link href="/admin/addWorker">
             <p>Add Workers</p>
           </Link>
         </button>

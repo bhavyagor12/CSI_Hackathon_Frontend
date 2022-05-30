@@ -88,5 +88,6 @@ const SafetyTable = () => {
   );
 };
 
+
 export default SafetyTable;
 
