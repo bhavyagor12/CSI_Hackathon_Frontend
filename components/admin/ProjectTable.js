@@ -34,7 +34,7 @@ const ProjectTable = () => {
         <tbody className="bg-gray-800 text-zinc-100 text-center">
           <tr className="bg-black bg-opacity-20">
             <th className="px-6 py-4 whitespace-nowrap hover:bg-[#FFCA02] hover:text-[#024CA1] ">Client Name</th>
-            <th className="px-6 py-4 whitespace-nowrap hover:bg-[#FFCA02] ">Description</th>
+            {/* <th className="px-6 py-4 whitespace-nowrap hover:bg-[#FFCA02] ">Description</th> */}
             <th className="px-6 py-4 whitespace-nowrap hover:bg-[#FFCA02]">Duration</th>
             <th className="px-6 py-4 whitespace-nowrap hover:bg-[#FFCA02]">Project Name</th>
             <th className="px-6 py-4 whitespace-nowrap hover:bg-[#FFCA02]">Start Date</th>
@@ -46,9 +46,9 @@ const ProjectTable = () => {
                 <td className="px-6 py-4 whitespace-nowrap border-white-100 border-1">
                   {retard.ClientName}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">
+                {/* <td className="px-6 py-4 whitespace-nowrap">
                   {retard.Description}
-                </td>
+                </td> */}
                 <td className="px-6 py-4 whitespace-nowrap">
                   {retard.Duration}
                 </td>
